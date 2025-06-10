@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ikan Kuah Pala Banda - Rasaina Makanan Khas Maluku</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa; 
+    }
+
+  
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fd7e14;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    }
+    .navbar {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .navbar-transparent {
+      background-color: transparent;
+    }
+    .navbar-scrolled {
+      background-color: #212529;
+    }
+    .navbar-collapse {
+      transition: all 0.3s ease;
+    }
+    .navbar-collapse.show {
+      display: block;
+      background-color: #212529;
+      padding: 1rem;
+      border-radius: 0.25rem;
+    }
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        display: none;
+      }
+    }
+    .nav-item.dropdown {
+      position: relative;
+    }
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+      
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      opacity: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .dropdown-item:hover {
+      background-color: #fd7e14;
+    }
+
+    .dropdown-item.active {
+      color: #fd7e14;
+      background-color: #212529;
+      font-weight: bold;
+    }
+
+    
+    .nav-link.active {
+        color: #fd7e14 ;
+        font-weight: bold;
+    }
+
+    .ikan-kuah-pala-banda-hero {
+      background: url('ikan-kuah-pala-banda-illustration.png') no-repeat center center/cover; 
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .ikan-kuah-pala-banda-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    .ikan-kuah-pala-banda-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+    .ikan-kuah-pala-banda-hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .ikan-kuah-pala-banda-hero-content p {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+   
+    .content-section {
+      padding: 80px 0;
+    }
+    .section-title-menu {
+      color: #ff6b00;
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .text-gradient {
+      color: #fd7e14;
+      font-weight: 600;
+    }
+    .text-highlight {
+      background-color: #fff3cd;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .menu-image-showcase {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      margin-bottom: 1.5rem;
+    }
+     .menu-image-showcase-small {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      height: 250px;
+    }
+
+    .key-feature-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        text-align: center;
+        margin-bottom: 20px;
+        height: 100%;
+    }
+    .key-feature-card img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 3px solid #ffe8a1;
+    }
+    .key-feature-card h5 {
+        color: #fd7e14;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .enjoy-food-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+    .enjoy-food-step-icon {
+        color: #fd7e14;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-right: 15px;
+        line-height: 1.5;
+    }
+     .enjoy-food-step p {
+        text-align: left;
+    }
+
+    .btn-custom-menu {
+        background-color: #fd7e14;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-custom-menu:hover {
+        background-color: #ff6b00;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    
+    footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 0;
+    }
+    .text-orange {
+      color: #fd7e14;
+    }
+
+    .border-start-custom {
+        border-left: 3px solid #ffc107;
+        padding-left: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="about.html">Rasaina</a>
+      <button class="navbar-toggler" type="button" id="navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html#about">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="menuDropdown">Menu</a>
+            <ul class="dropdown-menu" id="dropdownMenu">
+              <li><a class="dropdown-item" href="papeda.html">Papeda</a></li>
+              <li><a class="dropdown-item" href="ikan-bakar-colo-colo.html">Ikan Bakar Colo-Colo</a></li>
+              <li><a class="dropdown-item" href="kohu-kohu.html">Kohu-Kohu</a></li>
+              <li><a class="dropdown-item" href="nasi-jaha.html">Nasi Jaha</a></li>
+              <li><a class="dropdown-item" href="sagu-lempeng.html">Sagu Lempeng</a></li>
+              <li><a class="dropdown-item active" href="ikan-kuah-pala-banda.html">Ikan Kuah Pala Banda</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="ikan-kuah-pala-banda-hero">
+    <div class="ikan-kuah-pala-banda-hero-content">
+      <h1 class="text-orange">Ikan Kuah Pala Banda</h1>
+      <p>Kehangatan Rempah Pala dalam Semangkuk Sup Ikan Legendaris</p>
+    </div>
+  </header>
+  <section class="content-section bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-1 text-center text-lg-start">
+          <img src="ikan-kuah-pala-banda.jpg" alt="Semangkuk Ikan Kuah Pala Banda yang hangat" class="menu-image-showcase img-fluid mb-4 mb-lg-0">
+        </div>
+        <div class="col-lg-6 order-lg-2">
+          <h2 class="section-title-menu text-lg-start text-center">Ikan Kuah Pala Banda, <span class="text-gradient">Warisan Aromatik</span> dari Kepulauan Rempah</h2>
+          <p class="text-muted lead fw-light">
+            Ikan Kuah Pala Banda adalah <span class="text-highlight">sup ikan berkuah bening atau sedikit keruh</span> yang kaya akan aroma dan rasa khas buah pala. Hidangan legendaris ini berasal dari Kepulauan Banda, Maluku, yang terkenal sebagai pusat perdagangan pala dunia di masa lampau.
+          </p>
+          <div class="border-start-custom mt-3">
+            <p class="text-muted">
+              Kesegaran ikan laut berpadu dengan kehangatan buah pala (daging buah, biji, atau fulinya), serta rempah lain seperti kunyit, jahe, dan serai, menciptakan cita rasa yang <span class="text-gradient fw-medium">unik, gurih, sedikit asam menyegarkan, dan sangat aromatik</span>.
+            </p>
+          </div>
+          <p class="text-muted mt-3">
+            Setiap sendoknya membawa kita menelusuri <span class="text-highlight">jejak sejarah</span> Kepulauan Rempah yang masyhur.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content-section" style="background-color: #fdf6e3;">
+    <div class="container">
+      <h2 class="section-title-menu mb-5">Simfoni Rempah dalam <span class="text-gradient">Ikan Kuah Pala Banda</span></h2>
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="key-feature-card">
+            <img src="ikan-segar-kuah-pala.jpg" alt="Ikan Segar untuk Kuah Pala">
+            <h5>Ikan Segar Pilihan</h5>
+            <p class="text-muted small">Menggunakan ikan laut segar seperti kakap atau kerapu yang menghasilkan kaldu bening dan daging ikan yang lembut.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="key-feature-card">
+            <img src="buah-pala-banda.jpg" alt="Buah Pala Banda Asli">
+            <h5>Buah Pala Banda Asli</h5>
+            <p class="text-muted small">Aroma dan rasa khas pala dari Kepulauan Banda menjadi kunci utama, memberikan kehangatan dan keunikan tak tertandingi.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="key-feature-card">
+            <img src="rempah.jpg" alt="Rempah Pendukung Kuah Pala">
+            <h5>Rempah Harmonis</h5>
+            <p class="text-muted small">Kunyit, jahe, serai, bawang, dan cabai (opsional) berpadu harmonis menyeimbangkan dan memperkaya cita rasa kuah.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content-section bg-white">
+    <div class="container">
+     <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2 text-center">
+         <img src="ikan-kuah-pala-banda-saji.jpg" alt="Ikan Kuah Pala Banda disajikan dengan nasi dan sambal" class="menu-image-showcase-small img-fluid">
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <h2 class="section-title-menu text-lg-start text-center">Menikmati Kehangatan <span class="text-gradient">Ikan Kuah Pala Banda</span></h2>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">01.</div>
+            <p class="text-muted">Sajikan Ikan Kuah Pala Banda selagi <span class="text-highlight fw-medium">hangat mengepul</span> untuk menikmati aroma rempahnya secara maksimal.</p>
+          </div>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">02.</div>
+            <p class="text-muted">Nikmati bersama <span class="text-highlight fw-medium">nasi putih hangat</span>. Kuahnya yang segar sangat cocok meresap ke dalam nasi.</p>
+          </div>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">03.</div>
+            <p class="text-muted">Hidangan ini juga sering disantap dengan <span class="text-highlight fw-medium">Papeda atau Sagu Lempeng</span>, menciptakan perpaduan tekstur yang unik.</p>
+          </div>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">04.</div>
+            <p class="text-muted">Tambahkan <span class="text-highlight fw-medium">sambal khas Maluku</span> atau perasan jeruk nipis jika menyukai sensasi pedas dan asam yang lebih kuat.</p>
+          </div>
+          <div class="text-center text-lg-start mt-4">
+              <a href="about.html#menu" class="btn btn-custom-menu">Jelajahi Menu Lain</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h4 class="text-orange fw-bold mb-3">Contact Rasaina</h4>
+          <p>Jl. Rempah Timur No. 27, Ambon, Maluku</p>
+          <p>+62 812 3456 7890</p>
+          <p>info@rasaina.id</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="fw-semibold mb-3">Kirim Pesan</h5>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nama Anda" required />
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email Anda" required />
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="3" placeholder="Pesan Anda" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning text-white px-4">Kirim</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <hr class="border-top border-secondary" />
+        <p class="mb-0">&copy; 2025 <span class="text-orange fw-bold">Rasaina</span>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener('load', function() {
+      alert("Selamat Datang di  menu ikan kuah pala banda!\n\nNikmati cita rasa autentik khas Maluku yang lezat dan menggugah selera.");
+    });
+
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.remove('navbar-transparent');
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.add('navbar-transparent');
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    document.querySelector('.navbar-toggler').addEventListener('click', function() {
+      document.querySelector('.navbar-collapse').classList.toggle('show');
+    });
+
+    function tampilkanSaatScroll() {
+    const elemenTersembunyi = document.querySelectorAll('.key-feature-card, .enjoy-food-step');
+    
+    for (let i = 0; i < elemenTersembunyi.length; i++) {
+      const posisi = elemenTersembunyi[i].getBoundingClientRect().top;
+      const tinggiLayar = window.innerHeight;
+
+      if (posisi < tinggiLayar - 100) {
+        elemenTersembunyi[i].classList.add('muncul');
+      }
+    }
+  }
+
+  
+  window.addEventListener('scroll', tampilkanSaatScroll);
+
+  
+  const gayaMuncul = document.createElement('style');
+  gayaMuncul.innerHTML = `
+    .muncul {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: all 0.6s ease-out;
+    }
+
+    .key-feature-card, .enjoy-food-step {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+  `;
+  document.head.appendChild(gayaMuncul);
+
+
+  
+  function sapaPengunjung() {
+    alert("Terima kasih telah menjelajah menu makanan khas Maluku! 😊");
+  }
+
+
+  const tombolJelajah = document.querySelector('.btn-custom-menu');
+  tombolJelajah.addEventListener('click', sapaPengunjung);
+  </script>
+</body>
+</html>

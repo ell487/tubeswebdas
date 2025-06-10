@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-A" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Papeda - Rasaina Makanan Khas Maluku</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa; 
+    }
+
+ 
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fd7e14;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    }
+    .navbar {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .navbar-transparent {
+      background-color: transparent;
+    }
+    .navbar-scrolled {
+      background-color: #212529;
+    }
+    .navbar-collapse {
+      transition: all 0.3s ease;
+    }
+    .navbar-collapse.show {
+      display: block;
+      background-color: #212529;
+      padding: 1rem;
+      border-radius: 0.25rem;
+    }
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        display: none;
+      }
+    }
+    .nav-item.dropdown {
+      position: relative;
+    }
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      opacity: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .dropdown-item:hover {
+      background-color: #fd7e14
+    }
+
+     .dropdown-item.active {
+      color: #fd7e14;
+      background-color: #212529;
+      font-weight: bold;
+    }
+
+    .nav-link.active {
+        color: #fd7e14;
+        font-weight: bold;
+    }
+
+
+    
+    .papeda-hero {
+      background: url('Papeda.jpg') no-repeat center center/cover; 
+      height: 90vh; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .papeda-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5); 
+      z-index: 0;
+    }
+    .papeda-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+    .papeda-hero-content h1 {
+      font-size: 3.5rem; 
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .papeda-hero-content p {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+   
+    .content-section {
+      padding: 80px 0;
+    }
+    .section-title-papeda { 
+      color: #ff6b00;
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .text-gradient { 
+      color: #fd7e14; 
+      font-weight: 600;
+    }
+    .text-highlight { 
+      background-color: #fff3cd; 
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .papeda-image-showcase {
+      width: 120%;
+      max-width: 500px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      margin-bottom: 1.5rem;
+      margin-left: 100px;
+    }
+     .papeda-image-showcase-small {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      height: 250px;
+    }
+
+
+   
+    .ingredient-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        text-align: center;
+        margin-bottom: 20px;
+        height: 100%;
+    }
+    .ingredient-card img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 3px solid #ffe8a1;
+    }
+    .ingredient-card h5 {
+        color: #fd7e14;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    
+    .enjoy-papeda-icon {
+        width: 60px; 
+        height: 60px;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+    .enjoy-papeda-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+    .enjoy-papeda-step-icon {
+        color: #fd7e14;
+        font-size: 1.5rem; 
+        font-weight: 700;
+        margin-right: 15px;
+        line-height: 1.5;
+    }
+     .enjoy-papeda-step p {
+        text-align: left;
+    }
+
+    .btn-custom-papeda {
+        background-color: #fd7e14;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-custom-papeda:hover {
+        background-color: #ff6b00;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+  
+    footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 0;
+    }
+    .text-orange {
+      color: #fd7e14;
+    }
+
+    .border-start-custom { 
+        border-left: 3px solid #ffc107;
+        padding-left: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="about.html">Rasaina</a> <button class="navbar-toggler" type="button" id="navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html#">Home</a></li> <li class="nav-item"><a class="nav-link" href="about.html#about">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="menuDropdown">Menu</a> <ul class="dropdown-menu" id="dropdownMenu">
+              <li><a class="dropdown-item active" href="papeda.html">Papeda</a></li> 
+              <li><a class="dropdown-item" href="ikan-bakar-colo-colo.html">Ikan Bakar Colo-Colo</a></li>
+              <li><a class="dropdown-item" href="kohu-kohu.html">Kohu-Kohu</a></li>
+              <li><a class="dropdown-item" href="nasi-jaha.html">Nasi Jaha</a></li>
+              <li><a class="dropdown-item" href="sagu-lempeng.html">Sagu Lempeng</a></li>
+              <li><a class="dropdown-item" href="ikan-kuah-pala-banda.html">Ikan Kuah Pala Banda</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="papeda-hero">
+    <div class="papeda-hero-content">
+      <h1 class="text-orange">Papeda</h1>
+      <p>Kelembutan Sagu Autentik dari Jantung Indonesia Timur</p>
+    </div>
+  </header>
+ <section class="content-section bg-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-1">
+        <h2 class="section-title-papeda text-lg-start text-center">
+          <span class="text-gradient">Sejuta Rasa</span> dalam Kelembutan Papeda
+        </h2>
+        <p class="text-muted lead fw-light">
+          Papeda adalah <span class="text-highlight">makanan pokok</span> masyarakat Maluku dan Papua yang terbuat dari sari pati sagu. Teksturnya yang unik, kenyal dan lembut seperti lem, menjadi ciri khas yang tak terlupakan.
+        </p>
+        <div class="border-start-custom mt-3">
+          <p class="text-muted">
+            Disajikan hangat bersama <span class="fw-medium text-gradient">ikan kuah kuning</span> yang kaya rempah, Papeda bukan hanya mengenyangkan tetapi juga menghangatkan suasana kebersamaan. Setiap suapan adalah perpaduan sempurna antara kelembutan sagu dan gurihnya kuah.
+          </p>
+        </div>
+        <p class="text-muted mt-3">
+          Lebih dari sekadar makanan, Papeda adalah <span class="text-highlight">simbol budaya</span>, identitas, dan kearifan lokal yang diwariskan turun-temurun.
+        </p>
+      </div>
+      <div class="col-lg-6 order-lg-2 text-center text-lg-start">
+        <img src="papeda1.jpg" alt="Papeda disajikan dengan kuah kuning" class="papeda-image-showcase img-fluid mb-4 mb-lg-0">
+      </div>
+    </div>
+  </div>
+ </section>
+
+  <section class="content-section" style="background-color: #fdf6e3;"> <div class="container">
+      <h2 class="section-title-papeda mb-5">Simfoni <span class="text-gradient">Bahan Pilihan</span></h2>
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="ingredient-card">
+            <img src="sagu.jpg" alt="Sagu sebagai bahan utama Papeda">
+            <h5>Sagu Murni</h5>
+            <p class="text-muted small">Diambil dari pohon sagu pilihan, menghasilkan pati sagu berkualitas tinggi yang menjadi dasar kelembutan Papeda.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="ingredient-card">
+            <img src="ikan-kuah-pala-banda.jpg" alt="Ikan Kuah Kuning pelengkap Papeda">
+            <h5>Ikan Kuah Kuning Segar</h5>
+            <p class="text-muted small">Perpaduan ikan segar dengan bumbu kuning khas (kunyit, serai, kemangi) menciptakan rasa gurih dan aroma yang memikat.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="ingredient-card">
+            <img src="rempah.jpg" alt="Rempah-rempah khas Maluku">
+            <h5>Rempah Alami Nusantara</h5>
+            <p class="text-muted small">Kekayaan rempah Maluku seperti pala, cengkeh, dan lainnya turut memperkaya cita rasa setiap hidangan pendamping Papeda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 text-center">
+          <img src="cara-menikmati.jpg" alt="Cara menikmati Papeda" class="papeda-image-showcase-small img-fluid">
+        </div>
+        <div class="col-lg-6">
+          <h2 class="section-title-papeda text-lg-start text-center">Seni <span class="text-gradient">Menikmati Papeda</span></h2>
+          <div class="enjoy-papeda-step">
+            <div class="enjoy-papeda-step-icon">01.</div>
+            <p class="text-muted">Gunakan <span class="text-highlight fw-medium">gata-gata</span> (sumpit bambu khusus) atau dua garpu untuk mengambil Papeda dari mangkuk saji.</p>
+          </div>
+          <div class="enjoy-papeda-step">
+            <div class="enjoy-papeda-step-icon">02.</div>
+            <p class="text-muted">Gulung Papeda dengan gerakan memutar hingga membentuk gumpalan kecil yang pas di sendok atau langsung ke mulut.</p>
+          </div>
+          <div class="enjoy-papeda-step">
+            <div class="enjoy-papeda-step-icon">03.</div>
+            <p class="text-muted">Celupkan atau siram dengan <span class="text-highlight fw-medium">ikan kuah kuning</span>, tambahkan perasan jeruk nipis dan sambal sesuai selera.</p>
+          </div>
+          <div class="enjoy-papeda-step">
+            <div class="enjoy-papeda-step-icon">04.</div>
+            <p class="text-muted">Santap selagi hangat bersama hidangan pendamping lainnya untuk pengalaman rasa yang maksimal.</p>
+          </div>
+          <div class="text-center text-lg-start mt-4">
+            <a href="about.html#menu" class="btn btn-custom-papeda">Jelajahi Menu Lainnya</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h4 class="text-orange fw-bold mb-3">Contact Rasaina</h4>
+          <p>Jl. Rempah Timur No. 27, Ambon, Maluku</p>
+          <p>+62 812 3456 7890</p>
+          <p>info@rasaina.id</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="fw-semibold mb-3">Kirim Pesan</h5>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nama Anda" required />
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email Anda" required />
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="3" placeholder="Pesan Anda" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning text-white px-4">Kirim</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <hr class="border-top border-secondary" />
+        <p class="mb-0">&copy; 2025 <span class="text-orange fw-bold">Rasaina</span>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+  window.addEventListener('load', function() {
+    alert("Selamat datang di menu Papeda!\n\nNikmati cita rasa autentik khas Maluku yang lembut dan menggugah selera.");
+  });
+
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.remove('navbar-transparent');
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbar.classList.add('navbar-transparent');
+      navbar.classList.remove('navbar-scrolled');
+    }
+  });
+
+  document.querySelector('.navbar-toggler').addEventListener('click', function() {
+    document.querySelector('.navbar-collapse').classList.toggle('show');
+  });
+
+  function tampilkanSaatScroll() {
+    const elemenTersembunyi = document.querySelectorAll('.ingredient-card, .enjoy-papeda-step');
+
+    for (let i = 0; i < elemenTersembunyi.length; i++) {
+      const posisi = elemenTersembunyi[i].getBoundingClientRect().top;
+      const tinggiLayar = window.innerHeight;
+
+      if (posisi < tinggiLayar - 100) {
+        elemenTersembunyi[i].classList.add('muncul');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', tampilkanSaatScroll);
+
+  const gayaMuncul = document.createElement('style');
+  gayaMuncul.innerHTML = `
+    .muncul {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      transition: all 0.6s ease-out;
+    }
+
+    .ingredient-card, .enjoy-papeda-step {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+  `;
+  document.head.appendChild(gayaMuncul);
+
+  function sapaPengunjung() {
+    alert("Terima kasih telah menjelajah menu makanan khas Maluku! 😊");
+  }
+
+ 
+  const tombolJelajah = document.querySelector('.btn-custom-papeda');
+  if (tombolJelajah) {
+    tombolJelajah.addEventListener('click', sapaPengunjung);
+  }
+</script>
+
+</body>
+</html>

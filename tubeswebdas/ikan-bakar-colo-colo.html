@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ikan Bakar Colo-Colo - Rasaina Makanan Khas Maluku</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa; 
+    }
+
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fd7e14;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    }
+    .navbar {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .navbar-transparent {
+      background-color: transparent;
+    }
+    .navbar-scrolled {
+      background-color: #212529;
+    }
+    .navbar-collapse {
+      transition: all 0.3s ease;
+    }
+    .navbar-collapse.show {
+      display: block;
+      background-color: #212529;
+      padding: 1rem;
+      border-radius: 0.25rem;
+    }
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        display: none;
+      }
+    }
+    .nav-item.dropdown {
+      position: relative;
+    }
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      opacity: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .dropdown-item:hover {
+      background-color: #fd7e14;
+    }
+
+    .dropdown-item.active {
+      color: #fd7e14;
+      background-color: #212529;
+      font-weight: bold;
+    }
+
+    .nav-link.active {
+        color: #fd7e14;
+        font-weight: bold;
+    }
+
+  
+    .ikan-bakar-hero {
+      background: url('ikan-bakar-colo-colo-illustration.png') no-repeat center center/cover; 
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    .ikan-bakar-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+    .ikan-bakar-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+    .ikan-bakar-hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .ikan-bakar-hero-content p {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+   
+    .content-section {
+      padding: 80px 0;
+    }
+    .section-title-menu { 
+      color: #ff6b00;
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .text-gradient {
+      color: #fd7e14;
+      font-weight: 600;
+    }
+    .text-highlight {
+      background-color: #fff3cd;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .menu-image-showcase {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      margin-bottom: 1.5rem;
+      height: 350px;
+    }
+    .menu-image-showcase-small {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      height: 250px;
+    }
+
+
+    .key-feature-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        text-align: center;
+        margin-bottom: 20px;
+        height: 100%;
+    }
+    .key-feature-card img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%; 
+        margin-bottom: 15px;
+        border: 3px solid #ffe8a1;
+    }
+    .key-feature-card h5 {
+        color: #fd7e14;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+  
+    .enjoy-food-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+    .enjoy-food-step-icon {
+        color: #fd7e14;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-right: 15px;
+        line-height: 1.5;
+    }
+     .enjoy-food-step p {
+        text-align: left;
+    }
+
+    .btn-custom-menu { 
+        background-color: #fd7e14;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-custom-menu:hover {
+        background-color: #ff6b00;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+   
+    footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 0;
+    }
+    .text-orange {
+      color: #fd7e14;
+    }
+
+    .border-start-custom {
+        border-left: 3px solid #ffc107;
+        padding-left: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="about.html">Rasaina</a>
+      <button class="navbar-toggler" type="button" id="navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html#about">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="menuDropdown">Menu</a>
+            <ul class="dropdown-menu" id="dropdownMenu">
+              <li><a class="dropdown-item" href="papeda.html">Papeda</a></li>
+              <li><a class="dropdown-item active" href="ikan-bakar-colo-colo.html">Ikan Bakar Colo-Colo</a></li>
+              <li><a class="dropdown-item" href="kohu-kohu.html">Kohu-Kohu</a></li>
+              <li><a class="dropdown-item" href="nasi-jaha.html">Nasi Jaha</a></li>
+              <li><a class="dropdown-item" href="sagu-lempeng.html">Sagu Lempeng</a></li>
+              <li><a class="dropdown-item" href="ikan-kuah-pala-banda.html">Ikan Kuah Pala Banda</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="ikan-bakar-hero">
+    <div class="ikan-bakar-hero-content">
+      <h1 class="text-orange">Ikan Bakar Colo-Colo</h1>
+      <p>Sensasi Pedas Menyengat, Segar Menggoda Khas Pesisir Maluku</p>
+    </div>
+  </header>
+  <section class="content-section bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 text-center text-lg-start">
+          <img src="colo-colo.jpg" alt="Ikan Bakar Colo-Colo disajikan dengan sambal segar" class="menu-image-showcase img-fluid mb-4 mb-lg-0">
+        </div>
+        <div class="col-lg-6">
+          <h2 class="section-title-menu text-lg-start text-center">Kenali Kelezatan <span class="text-gradient">Ikan Bakar Colo-Colo</span></h2>
+          <p class="text-muted lead fw-light">
+            Ikan Bakar Colo-Colo adalah hidangan <span class="text-highlight">ikan bakar</span> khas Maluku yang disajikan dengan sambal colo-colo yang segar dan pedas. Keunikan hidangan ini terletak pada kesederhanaan bumbu ikan bakarnya yang menonjolkan rasa asli ikan, berpadu sempurna dengan <span class="text-gradient fw-medium">ledakan rasa</span> dari sambal colo-colo.
+          </p>
+          <div class="border-start-custom mt-3">
+            <p class="text-muted">
+              Sambal colo-colo umumnya terbuat dari irisan cabai rawit, bawang merah, tomat muda, dan perasan jeruk nipis atau belimbing wuluh, seringkali ditambah sedikit kecap manis atau asin sesuai selera.
+            </p>
+          </div>
+           <p class="text-muted mt-3">
+              Berbagai jenis ikan segar seperti <span class="text-highlight">baronang, kakap, atau kerapu</span> sering menjadi pilihan utama untuk hidangan istimewa ini.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content-section" style="background-color: #fdf6e3;">
+    <div class="container">
+      <h2 class="section-title-menu mb-5">Rahasia di Balik <span class="text-gradient">Sambal Colo-Colo</span> Nan Nikmat</h2>
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="key-feature-card">
+            <img src="ikan-baronang.jpg" alt="Ikan segar untuk Ikan Bakar">
+            <h5>Ikan Segar Pilihan</h5>
+            <p class="text-muted small">Kualitas ikan yang prima adalah kunci utama. Dipilih dari hasil laut terbaik, dibakar hingga matang sempurna.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="key-feature-card">
+            <img src="sambal-colo-colo.jpg" alt="Bahan Sambal Colo-Colo segar">
+            <h5>Racikan Sambal Segar</h5>
+            <p class="text-muted small">Perpaduan cabai, bawang, tomat, dan asam segar menciptakan sensasi pedas, asam, dan gurih yang membangkitkan selera.</p>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="key-feature-card">
+            <img src="bakar.jpg" alt="Proses bakar tradisional">
+            <h5>Aroma Khas Pembakaran</h5>
+            <p class="text-muted small">Proses pembakaran, seringkali menggunakan arang, memberikan aroma smoky yang khas dan tak tergantikan pada ikan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content-section bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2 text-center">
+            <img src="ikan-bakar-colo.jpg" alt="Cara menikmati Ikan Bakar Colo-Colo" class="menu-image-showcase-small img-fluid">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <h2 class="section-title-menu text-lg-start text-center">Panduan Sempurna <span class="text-gradient">Menyantap Ikan Bakar Colo-Colo</span></h2>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">01.</div>
+            <p class="text-muted">Siapkan ikan bakar yang masih hangat di atas piring saji, pastikan aroma bakarnya tercium menggoda.</p>
+          </div>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">02.</div>
+            <p class="text-muted">Siram atau cocol daging ikan dengan <span class="text-highlight fw-medium">sambal colo-colo</span> segar. Jangan ragu untuk mengambil sambal berlimpah!</p>
+          </div>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">03.</div>
+            <p class="text-muted">Nikmati bersama <span class="text-highlight fw-medium">nasi putih hangat</span>. Beberapa orang juga menyukainya dengan papeda atau kasbi rebus (singkong).</p>
+          </div>
+          <div class="enjoy-food-step">
+            <div class="enjoy-food-step-icon">04.</div>
+            <p class="text-muted">Untuk kesegaran ekstra, tambahkan perasan jeruk nipis di atas ikan dan sambal sebelum disantap.</p>
+          </div>
+          <div class="text-center text-lg-start mt-4">
+              <a href="about.html#menu" class="btn btn-custom-menu mt-4">Jelajahi Menu Lain</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h4 class="text-orange fw-bold mb-3">Contact Rasaina</h4>
+          <p>Jl. Rempah Timur No. 27, Ambon, Maluku</p>
+          <p>+62 812 3456 7890</p>
+          <p>info@rasaina.id</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="fw-semibold mb-3">Kirim Pesan</h5>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nama Anda" required />
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email Anda" required />
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="3" placeholder="Pesan Anda" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning text-white px-4">Kirim</button>
+          </form>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <hr class="border-top border-secondary" />
+        <p class="mb-0">&copy; 2025 <span class="text-orange fw-bold">Rasaina</span>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+   
+    window.addEventListener('load', function() {
+      alert("Selamat Datang di  menu ikan bakar colo-colo!\n\nNikmati cita rasa autentik khas Maluku yang lezat dan menggugah selera.");
+    });
+
+
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.remove('navbar-transparent');
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.add('navbar-transparent');
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    document.querySelector('.navbar-toggler').addEventListener('click', function() {
+      document.querySelector('.navbar-collapse').classList.toggle('show');
+    });
+
+    
+  function tampilkanSaatScroll() {
+    const elemenTersembunyi = document.querySelectorAll('.key-feature-card, .enjoy-food-step');
+    
+    for (let i = 0; i < elemenTersembunyi.length; i++) {
+      const posisi = elemenTersembunyi[i].getBoundingClientRect().top;
+      const tinggiLayar = window.innerHeight;
+
+      if (posisi < tinggiLayar - 100) {
+        elemenTersembunyi[i].classList.add('muncul');
+      }
+    }
+  }
+
+  
+  window.addEventListener('scroll', tampilkanSaatScroll);
+
+  
+  const gayaMuncul = document.createElement('style');
+  gayaMuncul.innerHTML = `
+    .muncul {
+      opacity: 1 !important;
+      transform: translateY(0) ;
+      transition: all 0.6s ease-out;
+    }
+
+    .key-feature-card, .enjoy-food-step {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+  `;
+  document.head.appendChild(gayaMuncul);
+
+
+  
+  document.querySelector('.btn-custom-menu').addEventListener('click', function() {
+  alert("Terima kasih telah menjelajahi menu makanan kami!\n\nDapatkan pengalaman kuliner terbaik dengan hidangan khas Maluku yang lezat.");
+  });
+  </script>
+</body>
+</html>
